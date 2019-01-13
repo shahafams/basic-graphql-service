@@ -18,7 +18,23 @@ type Car implements Vehicle {
   licensePlate: String
 }
 
+input CarInput{
+  maxSpeed: Int
+  licensePlate: String
+}
+
+input AirplaneInput{
+  maxSpeed: Int
+  wingspan: Int
+  date: Date
+}
+
 type Query {
   vehicle: [Vehicle]
+}
+
+type Mutation {
+    setCar(car: CarInput): [Car]
+    setAirplane(airplane: AirplaneInput): Vehicle
 }
 `

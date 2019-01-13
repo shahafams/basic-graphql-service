@@ -1,6 +1,6 @@
 import { GraphQLScalarType } from 'graphql'
 import { Kind } from 'graphql/language'
-import { getAll } from '../utils/db'
+import { getAll, setAirplane, setCar } from '../utils/db'
 
 export const resolvers = {
     Date: new GraphQLScalarType({
@@ -33,6 +33,14 @@ export const resolvers = {
     Query: {
         vehicle: () => {
             return getAll()
+        }
+    },
+    Mutation: {
+        setCar: async (_, req) => {
+            return setCar(req.car).then(res => res.ops)
+        },
+        setAirplane: (_, req) => {
+            return setAirplane(req.airplane).then(res => res.ops)
         }
     }
 }

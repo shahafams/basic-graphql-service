@@ -16,3 +16,13 @@ export const connect = async () => {
 export const getAll = () => {
     return internals.db.collection('vehicles').find({}).toArray()
 }
+
+
+
+export const setCar =  (car) => {
+    return internals.db.collection('vehicles').insertOne(car)
+}
+
+export const setAirplane = (airplane) => {
+    return internals.db.collection('vehicles').insertOne(airplane)
+}
