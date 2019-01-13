@@ -9,11 +9,10 @@ export const connect = async () => {
         const client = await MongoClient.connect('mongodb://localhost:27017/db')
         internals.client = client
         internals.db = client.db('db')
-
     }
     return internals.db
 }
 
 export const getAll = () => {
-    return internals.db
+    return internals.db.collection('vehicles').find({}).toArray()
 }

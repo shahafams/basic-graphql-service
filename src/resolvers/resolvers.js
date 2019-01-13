@@ -24,8 +24,7 @@ export const resolvers = {
             if (obj.wingspan) {
                 return 'Airplane'
             }
-
-            if (obj.licensePlate) {
+            else if (obj.licensePlate) {
                 return 'Car'
             }
         }
@@ -33,10 +32,7 @@ export const resolvers = {
 
     Query: {
         vehicle: () => {
-            return new Promise(function (resolve, reject) {
-                getAll()
-                resolve(getAll())
-            })
+            return getAll()
         }
     }
 }
